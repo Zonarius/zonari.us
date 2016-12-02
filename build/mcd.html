@@ -1,0 +1,34 @@
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js"></script>
+
+<style>
+    .mc-img-container {
+	            background-position: -822 0;
+			            width: 137px;
+					            height: 183px;
+							            display: inline-block;
+									        }
+</style>
+
+<div id="app">
+	    <mcimg v-for="item in images" :link="item"></mcimg>
+</div>
+
+<script>
+    Vue.component('mcimg', {
+	            props: ['link'],
+		            template: '<div class="mc-img-container" :style="{ backgroundImage: \'url(\' + link + \')\' }"></div>'
+				        })
+
+    var app = new Vue({
+	            el: '#app',
+		            data: {
+				                images: _.range(1, 25)
+							                     .map(it => it < 10 ? "0" + it : "" + it)
+									                          .map(it => "https://my.mcdonalds.at/images/doors/tuer_" + it + "_137.png")
+												          }
+		        });
+
+
+</script>
