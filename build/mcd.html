@@ -1,34 +1,24 @@
+<!DOCTYPE HTML>
+<html>
 
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js"></script>
+<head>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js"></script>
+	<script defer src="mcd.js"></script>
+	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+	<style>
+		.mc-img-container {
+			background-position: -822px 0;
+			width: 137px;
+			height: 183px;
+			display: inline-block;
+		}
+	</style>
+</head>
 
-<style>
-    .mc-img-container {
-	            background-position: -822 0;
-			            width: 137px;
-					            height: 183px;
-							            display: inline-block;
-									        }
-</style>
-
-<div id="app">
-	    <mcimg v-for="item in images" :link="item"></mcimg>
-</div>
-
-<script>
-    Vue.component('mcimg', {
-	            props: ['link'],
-		            template: '<div class="mc-img-container" :style="{ backgroundImage: \'url(\' + link + \')\' }"></div>'
-				        })
-
-    var app = new Vue({
-	            el: '#app',
-		            data: {
-				                images: _.range(1, 25)
-							                     .map(it => it < 10 ? "0" + it : "" + it)
-									                          .map(it => "https://my.mcdonalds.at/images/doors/tuer_" + it + "_137.png")
-												          }
-		        });
-
-
-</script>
+<body>
+	<div id="app">
+		<mcimg v-for="item in images" :link="item"></mcimg>
+	</div>
+</body>
+</html>
