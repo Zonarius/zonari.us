@@ -1,2 +1,0 @@
-# zonari.us
-homepage
